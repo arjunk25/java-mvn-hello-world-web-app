@@ -19,8 +19,11 @@ stage ('build'){
     }
     
   stage ('deploy'){
+    agent {label 'slave2'}
       steps{
-        sh 'docker run -d -p 9000:8080 mstage:latest'
+        sh 'docker login -u arjunaru25 -p Dapplearu25'
+        sh 'docker pull arjunaru25/mstagedh:1.0'
+        sh 'docker run -d -p 9000:8080 arjunaru25/mstagedh:1.0'
       }
     }
     
