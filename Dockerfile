@@ -1,5 +1,5 @@
 FROM maven:3.8.2-openjdk-8-slim as build
-WORKDIR dir
+WORKDIR /dir
 COPY . .
 RUN mvn package
 FROM tomcat:jre8-temurin-focal
