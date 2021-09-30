@@ -4,6 +4,8 @@ pipeline {
     
 stage ('build'){
       steps{
+        sh 'pwd'
+        sh 'ls'
         sh 'sudo docker build -t mstage:latest .'
       }
     }
