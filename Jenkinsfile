@@ -10,12 +10,6 @@ stage ('build'){
       }
     }
     
-  stage ('deploy'){
-      steps{
-        sh 'docker run -d -p 9000:8080 mstage:latest'
-      }
-    }
-    
      stage ('publish'){
       steps{
         sh 'docker tag mstage:latest arjunaru25/mstagedh:1.0'
@@ -23,6 +17,14 @@ stage ('build'){
         sh 'docker push arjunaru25/mstagedh:1.0'
       }
     }
+    
+  stage ('deploy'){
+      steps{
+        sh 'docker run -d -p 9000:8080 mstage:latest'
+      }
+    }
+    
+
 
   }
 }
